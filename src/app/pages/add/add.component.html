@@ -27,11 +27,7 @@
             </svg>
           </button>
           <ul class="search-autocomplete-cities">
-            <li>Tokyo</li>
-            <li>Paris</li>
-            <li>Qatar</li>
-            <li>Tunis</li>
-            <li>Rabat</li>
+            <li *ngFor="let city of capitals">{{ city }}</li>
           </ul>
         </div>
         <span class="city-search-hr">O O O</span>
