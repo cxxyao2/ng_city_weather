@@ -6,6 +6,7 @@
         <div class="search-city-input-wrapper">
           <input
             class="search-city-input"
+            list="datalist_cities"
             auto-complete-placeholder="search city"
             placeholder="search city"
             auto-complete
@@ -26,9 +27,15 @@
               ></path>
             </svg>
           </button>
-          <ul class="search-autocomplete-cities">
-            <li *ngFor="let city of capitals">{{ city }}</li>
-          </ul>
+          <datalist
+            name="datalist_cities"
+            id="datalist_cities"
+            class="search-autocomplete-cities"
+          >
+            <option *ngFor="let city of capitals" [ngValue]="city">
+              {{ city }}
+            </option>
+          </datalist>
         </div>
         <span class="city-search-hr">O O O</span>
       </div>
