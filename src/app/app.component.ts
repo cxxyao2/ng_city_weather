@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   showMenu = false;
   darkModeActive = false;
 
-  userEmail = '';
+  userEmail?: string | null;
 
   constructor(
     public ui: UiService,
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     public router: Router
   ) {}
 
-  loggedIn = this.fb.isAuth;
+  loggedIn = this.fb.isAuth();
   sub1: any;
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     this.fb.userData().subscribe((user) => {
-      this.userEmail = user.email;
+      this.userEmail = user?.email;
     });
   }
 

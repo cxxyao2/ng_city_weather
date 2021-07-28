@@ -12,9 +12,6 @@
             [(ngModel)]="selectedCity"
             (keyup.enter)="selectCity(input.value)"
             (ngModelChange)="selectCity(input.value)"
-            [source]="capitals"
-            [max-num-list]="5"
-            [close-on-focusout]="false"
             #input
           />
           <button class="search-city-btn" (click)="selectCity(input.value)">
@@ -29,6 +26,13 @@
               ></path>
             </svg>
           </button>
+          <ul class="search-autocomplete-cities">
+            <li>Tokyo</li>
+            <li>Paris</li>
+            <li>Qatar</li>
+            <li>Tunis</li>
+            <li>Rabat</li>
+          </ul>
         </div>
         <span class="city-search-hr">O O O</span>
       </div>

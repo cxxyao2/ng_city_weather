@@ -104,7 +104,7 @@
         </div>
       </section>
       <section class="forecast__container">
-        <div class="day-weather__container" [ngSwitch]="true" *ngFor="let day of daysForecast | keyvalue">
+        <div class="day-weather__container" [ngSwitch]="true" *ngFor="let day of daysForecast">
           <span class="day-name__text">{{day.key}}</span>
           <svg class="forecast-condition__icon" *ngSwitchCase="day.value.state === 'Clouds'"
                viewBox="2436.9 -843.1 275.5 274.1">

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./error.component.css'],
 })
 export class ErrorComponent implements OnInit {
-  @Input() message!: string;
+  @Input() message?: string;
   @Input() action = 'GOT IT';
 
   constructor() {}

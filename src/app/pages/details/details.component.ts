@@ -21,7 +21,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   hum?: number;
   wind?: number;
   today?: string;
-  daysForecast?: Object;
+  daysForecast: any = {};
   cityIllustrationPath?: string;
   sub1?: Subscription;
   sub2?: Subscription;

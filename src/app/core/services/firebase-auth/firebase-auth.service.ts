@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-import { map, first } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import { of } from 'rxjs';
+import { EMPTY, of, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseAuthService {
-  isAuth = false;
   constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
   // sign-in method: email + password
@@ -20,7 +19,6 @@ export class FirebaseAuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((value) => {
-        this.isAuth = true;
         this.router.navigateByUrl('/home');
       })
       .catch((error) => {
@@ -38,14 +36,13 @@ export class FirebaseAuthService {
         console.log(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        window.alert(error.code && ' ' && error.message);
       });
   }
   // sign-in method: google
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider).then((value) => {
-      this.isAuth = true;
       console.log('Success', value);
       this.router.navigateByUrl('/home');
     });
@@ -62,7 +59,6 @@ export class FirebaseAuthService {
 
   logout() {
     this.afAuth.signOut().then(() => {
-      this.isAuth = false;
       this.router.navigate(['/']);
     });
   }
@@ -71,7 +67,13 @@ export class FirebaseAuthService {
     return this.afAuth.signInWithPopup(provider);
   }
 
+  isAuth(): Observable<boolean> {
+    return this.afAuth.authState.pipe(
+      mergeMap((x) => (x === null ? of(false) : of(true)))
+    );
+  }
+
   userData() {
-    return of({ email: 'TODO@gmail.com' }); // TODO
+    return this.afAuth.authState;
   }
 }

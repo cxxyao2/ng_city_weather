@@ -12,7 +12,7 @@ import { ThemeService as UiService } from 'src/app/core/services/theme/theme.ser
 
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
-//  TODO import { FbService } from '../../services/fb/fb.service';
+import { FirebaseService as FbService } from 'src/app/core/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-weather-card',
@@ -69,34 +69,34 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
       );
   }
 
-  @Input() addMode;
+  @Input() addMode: any;
   @Output() cityStored = new EventEmitter();
-  citesWeather!: Object;
+  citesWeather = {};
   darkMode!: boolean;
-  sub1!: Subscription;
-  state!: string;
-  temp!: number;
-  maxTemp!: number;
-  minTemp!: number;
-  errorMessage!: string;
+  sub1?: Subscription;
+  state?: string | null;
+  temp?: number | null;
+  maxTemp?: number | null;
+  minTemp?: number | null;
+  errorMessage?: string;
   cityName = '';
   cityAdded = false;
 
-  // TODO: need add Facebook login service
   constructor(
     public weather: WeatherService,
     public router: Router,
-    public ui: UiService
+    public ui: UiService,
+    public fb: FbService
   ) {}
 
   ngOnInit() {
-    this.sub1 = this.ui.darkModeState.subscribe((isDark) => {
+    this.sub1 = this.ui.isDarkTheme.subscribe((isDark) => {
       this.darkMode = isDark;
     });
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe();
+    this.sub1?.unsubscribe();
   }
 
   openDetails() {
@@ -107,7 +107,7 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
 
   addCity() {
     this.fb.addCity(this.cityName).subscribe(() => {
-      this.cityName = null;
+      this.cityName = '';
       this.maxTemp = null;
       this.minTemp = null;
       this.state = null;

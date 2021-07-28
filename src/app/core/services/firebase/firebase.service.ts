@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { map, first } from 'rxjs/operators';
+import { defer, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +11,21 @@ export class FirebaseService {
   constructor(public fireService: AngularFirestore) {}
 
   addCity(name: string) {
-    return this.fireService
-      .collection('City')
-      .add({ name, added: new Date() });
+    const observable$ = defer(() => {
+      return this.fireService
+        .collection('City')
+        .add({ name, added: new Date() });
+    });
+    return observable$;
   }
 
   // collection name : City
   // get an city id: snap.payload.doc.id
+  // user.uid
   getCities() {
+    const userId = 'aaa'; // TODO user.uid)
     return this.fireService
-      .collection('City')
+      .collection('City', (ref) => ref.where('uid', '==', userId))
       .snapshotChanges()
       .pipe(
         map((snaps) =>
