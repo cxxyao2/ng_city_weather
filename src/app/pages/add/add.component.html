@@ -12,7 +12,7 @@
             auto-complete
             [(ngModel)]="selectedCity"
             (keyup.enter)="selectCity(input.value)"
-            (ngModelChange)="selectCity(input.value)"
+            (ngModelChange)="inputChange(input.value)"
             #input
           />
           <button class="search-city-btn" (click)="selectCity(input.value)">
@@ -27,23 +27,19 @@
               ></path>
             </svg>
           </button>
-          <datalist
-            name="datalist_cities"
-            id="datalist_cities"
-            class="search-autocomplete-cities"
-          >
-            <option *ngFor="let city of capitals" [ngValue]="city">
+          <ul *ngIf="showList" class="search-autocomplete-cities">
+            <li *ngFor="let city of cityList" (click)="selectedOne(city)">
               {{ city }}
-            </option>
-          </datalist>
+            </li>
+          </ul>
         </div>
         <span class="city-search-hr">O O O</span>
       </div>
 
       <div class="city-search-body">
-        <span *ngIf="showNote" class="city-invalid-note"
-          >City name is not valid. Note: only capital cities are supported for
-          now</span
+        <span *ngIf="showNotFound" class="city-invalid-note">
+          City name is not valid. Note: only capital cities are supported for
+          now.</span
         >
         <app-weather-card
           (cityStored)="selectedCity = ''"

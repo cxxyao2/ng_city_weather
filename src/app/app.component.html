@@ -49,6 +49,15 @@
         >
           Add City
         </li>
+        <li
+          class="menu-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/scale"
+          routerLinkActive="link-active"
+          (click)="toggleMenu()"
+        >
+          scale
+        </li>
         <li (click)="logout()" class="menu-link">Logout</li>
       </ul>
     </section>

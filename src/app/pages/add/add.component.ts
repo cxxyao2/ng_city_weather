@@ -3,27 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { WeatherService } from 'src/app/core/services/weather/weather.service';
 import { FirebaseService as FbService } from 'src/app/core/services/firebase/firebase.service';
 
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { routerTransition } from 'src/app/shared/animations/router.animations';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css'],
+  animations: [routerTransition()],
+  host: { '[@routerTransition]': '' },
 })
 export class AddComponent implements OnInit, OnDestroy {
   temp?: number;
   city = 'Rome';
   state?: string;
   capitals: string[] = [];
+  cityList: string[] = [];
   selectedCity?: any;
   cardCity?: any;
-  showNote = false;
+  showNotFound = false;
   followedCM = false;
   sub1?: Subscription;
   maxNumList = 5; // TODO number of cities under input
-  closeOnFocusout = true; // TODO close the hinted cities whe input lost focus
-  // TODO: add a list under searchInput
+  showList = true;
 
   constructor(
     public http: HttpClient,
@@ -60,18 +63,36 @@ export class AddComponent implements OnInit, OnDestroy {
 
   selectCity(city: any) {
     if (this.capitals.includes(city)) {
-      console.log('include', city);
       this.cardCity = city;
-      this.showNote = false;
-    } else if (city.leading > 0) {
-      this.showNote = true;
+      this.showNotFound = false;
+    } else if (city.length > 0) {
+      this.showNotFound = true;
+      this.cardCity = null;
     }
+    this.showList = false;
   }
 
   addCityOfTheMonth() {
     this.fb.addCity('Rome').subscribe(() => {
       this.followedCM = true;
     });
+  }
+
+  inputChange(city: string) {
+    if (city.length > 0) {
+      this.cityList = this.capitals.filter((capital) =>
+        capital.toLowerCase().includes(city.toLowerCase())
+      );
+    } else {
+      this.cityList = this.capitals.slice(0, 6);
+    }
+    this.showList = true;
+  }
+
+  selectedOne(city: string) {
+    console.log(city);
+    this.selectedCity = city;
+    this.showList = false;
   }
 
   ngOnDestroy() {

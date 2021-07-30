@@ -23,9 +23,8 @@ export class FirebaseService {
   // get an city id: snap.payload.doc.id
   // user.uid
   getCities() {
-    const userId = 'aaa'; // TODO user.uid)
     return this.fireService
-      .collection('City', (ref) => ref.where('uid', '==', userId))
+      .collection('City')
       .snapshotChanges()
       .pipe(
         map((snaps) =>

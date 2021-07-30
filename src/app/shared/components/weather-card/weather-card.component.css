@@ -22,7 +22,7 @@ Weather Card Styling
 .weather__card-add {
   cursor: auto;
   margin: 0 auto;
-  box-shadow: rgba(0, 0, 255, 0.5);
+  box-shadow: 0 0 2rem rgba(0, 0, 255, 0.5);
   width: 80%;
 }
 

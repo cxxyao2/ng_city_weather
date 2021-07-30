@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +22,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { AddCardComponent } from './shared/components/add-card/add-card.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WeatherCardComponent } from './shared/components/weather-card/weather-card.component';
+import { ScaleComponent } from './pages/scale/scale.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,11 @@ import { WeatherCardComponent } from './shared/components/weather-card/weather-c
     AddCardComponent,
     ErrorComponent,
     WeatherCardComponent,
+    ScaleComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

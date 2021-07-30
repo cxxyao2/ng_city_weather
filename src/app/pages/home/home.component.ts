@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService as FbService } from 'src/app/core/services/firebase/firebase.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { FirebaseService as FbService } from 'src/app/core/services/firebase/fir
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  cities?: any;
+  cities?: Observable<any[]>;
 
   constructor(public fb: FbService) {}
 
