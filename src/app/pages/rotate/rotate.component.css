@@ -2,15 +2,14 @@
   position: relative;
   width: 19rem;
   height: 20rem;
+  border-radius: 1rem;
 }
-
-/* rise up */
-
 .card_area {
   position: absolute;
   width: 19rem;
   height: 20rem;
   border: solid 1px transparent;
+  border-radius: 1rem;
   transition: all 1s;
   overflow: hidden;
 }
@@ -21,15 +20,17 @@ app-animate-card {
 }
 
 #topCard {
-  animation: slide 1s linear;
+  animation: rotate 1s linear infinite;
   z-index: 100;
 }
 
-@keyframes slide {
-  from {
-    bottom: -100px;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.2;
   }
-  to {
-    bottom: -5px;
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.9;
   }
 }

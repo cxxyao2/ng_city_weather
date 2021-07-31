@@ -194,6 +194,12 @@
   color: white;
 }
 
+.mode-toggle__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
 .toggle-button__container {
   cursor: pointer;
   position: relative;
@@ -201,11 +207,7 @@
   display: inline-flex;
 }
 
-.mode-toggle__container {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
+
 
 .mode-toggle__input {
   -webkit-appearance: none;

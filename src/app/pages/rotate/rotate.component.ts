@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.css'],
+  selector: 'app-rotate',
+  templateUrl: './rotate.component.html',
+  styleUrls: ['./rotate.component.css'],
 })
-export class SlideComponent implements OnInit {
+export class RotateComponent implements OnInit {
   antStatus = 'normal';
   noDisplay = false;
   qatar = '../../../assets/cities/qatar.svg';

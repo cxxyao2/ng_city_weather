@@ -22,11 +22,14 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { AddCardComponent } from './shared/components/add-card/add-card.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WeatherCardComponent } from './shared/components/weather-card/weather-card.component';
-import { ScaleComponent } from './pages/scale/scale.component';
+
 import { ShowHideComponent } from './pages/show-hide/show-hide.component';
 import { AnimateCardComponent } from './shared/components/animate-card/animate-card.component';
+
+import { FadeComponent } from './pages/fade/fade.component';
+import { RotateComponent } from './pages/rotate/rotate.component';
 import { SlideComponent } from './pages/slide/slide.component';
-import { LeftRightComponent } from './pages/left-right/left-right.component';
+import { RulerComponent } from './shared/mock/ruler/ruler.component';
 
 @NgModule({
   declarations: [
@@ -39,11 +42,12 @@ import { LeftRightComponent } from './pages/left-right/left-right.component';
     AddCardComponent,
     ErrorComponent,
     WeatherCardComponent,
-    ScaleComponent,
     ShowHideComponent,
     AnimateCardComponent,
+    FadeComponent,
+    RotateComponent,
     SlideComponent,
-    LeftRightComponent,
+    RulerComponent,
   ],
   imports: [
     BrowserModule,

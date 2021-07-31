@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.css'],
+  selector: 'app-fade',
+  templateUrl: './fade.component.html',
+  styleUrls: ['./fade.component.css'],
 })
-export class SlideComponent implements OnInit {
+export class FadeComponent implements OnInit {
   antStatus = 'normal';
   noDisplay = false;
+  xxxbackgroundImage = `url(https://picsum.photos/${innerWidth}/${innerHeight}?random=${i})`;
   qatar = '../../../assets/cities/qatar.svg';
   tunis = '../../../assets/cities/tunis.svg';
   imageSrcTop = this.qatar;
