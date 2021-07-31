@@ -1,0 +1,23 @@
+<div class="card_wrapper">
+  <div class="card_area">
+    <app-animate-card
+      id="topCard"
+      #topCard
+      @ant
+      *ngIf="showTop"
+      [imageSlogan]="imageSloganTop"
+      [imageSrc]="imageSrcTop"
+    ></app-animate-card>
+    <app-animate-card
+      id="bottomCard"
+      #bottomCard
+      [imageSlogan]="imageSloganBottom"
+      [imageSrc]="imageSrcBottom"
+    ></app-animate-card>
+  </div>
+  <div class="button_area">
+    <button (click)="toggleSize()">Size</button>
+    <button (click)="toggleDisplay()">Display</button>
+    <button (click)="toggleTopBottom()">TopBottom</button>
+  </div>
+</div>

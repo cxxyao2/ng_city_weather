@@ -21,12 +21,14 @@ export class DetailsComponent implements OnInit, OnDestroy {
   hum?: number;
   wind?: number;
   today?: string;
-  daysForecast: any = {};
+  daysForecast: any[] = [];
   cityIllustrationPath?: string;
   sub1?: Subscription;
   sub2?: Subscription;
   errorMessage?: string;
-  tweets$?: Observable<any>;
+  tweets$?: Observable<Array<any>>;
+  forecastKey: string[] = [];
+  forecastValue: any[] = [];
 
   constructor(
     public twitter: TwitterService,
@@ -52,24 +54,24 @@ export class DetailsComponent implements OnInit, OnDestroy {
               this.cityIllustrationPath = '../../../assets/cities/france.svg';
               break;
             case 'doha':
-              this.cityIllustrationPath = '../../assets/cities/qatar.svg';
+              this.cityIllustrationPath = '../../../assets/cities/qatar.svg';
               break;
             case 'rabat':
-              this.cityIllustrationPath = '../../assets/cities/rabat.svg';
+              this.cityIllustrationPath = '../../../assets/cities/rabat.svg';
               break;
             case 'tunis':
-              this.cityIllustrationPath = '../../assets/cities/tunis.svg';
+              this.cityIllustrationPath = '../../../assets/cities/tunis.svg';
               break;
             case 'tokyo':
-              this.cityIllustrationPath = '../../assets/cities/japan.svg';
+              this.cityIllustrationPath = '../../../assets/cities/japan.svg';
               break;
             default:
-              this.cityIllustrationPath = '../../assets/cities/default.svg';
+              this.cityIllustrationPath = '../../../assets/cities/default.svg';
           }
-          return forkJoin(
+          return forkJoin([
             this.weather.getWeather(this.city),
-            this.weather.getForecast(this.city)
-          );
+            this.weather.getForecast(this.city),
+          ]);
         })
       )
       .subscribe(
@@ -97,8 +99,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
           });
           delete dates[Object.keys(dates)[0]];
           this.daysForecast = dates;
+          this.forecastKey = Object.keys(this.daysForecast);
+          this.forecastValue = Object.values(this.daysForecast);
         },
         (err) => {
+          console.log('error is ', err);
           this.errorMessage = err.error.message;
           setTimeout(() => {
             this.errorMessage = '';

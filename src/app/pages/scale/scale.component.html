@@ -1,1 +1,26 @@
-<div [@ant]="antStatus">Animation</div>
+<div class="showArea-wrapper">
+  <div [@ant]="antStatus" class="showArea">
+    Animation
+    <div @ant *ngIf="!noDisplay">child</div>
+  </div>
+</div>
+
+<div>
+  <button (click)="toggleSize()">Size</button>
+  <button (click)="toggleDisplay()">Display</button>
+  <button (click)="toggleTopBottom()">TopBottom</button>
+</div>
+<app-animate-card
+  #topCard
+  @ant
+  *ngIf="showTop"
+  [imageSlogan]="imageSloganTop"
+  [imageSrc]="imageSrcTop"
+></app-animate-card>
+<app-animate-card
+  #bottomCard
+  @ant
+  *ngIf="!showTop"
+  [imageSlogan]="imageSloganBottom"
+  [imageSrc]="imageSrcBottom"
+></app-animate-card>

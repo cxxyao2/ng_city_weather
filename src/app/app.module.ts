@@ -23,6 +23,10 @@ import { AddCardComponent } from './shared/components/add-card/add-card.componen
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WeatherCardComponent } from './shared/components/weather-card/weather-card.component';
 import { ScaleComponent } from './pages/scale/scale.component';
+import { ShowHideComponent } from './pages/show-hide/show-hide.component';
+import { AnimateCardComponent } from './shared/components/animate-card/animate-card.component';
+import { SlideComponent } from './pages/slide/slide.component';
+import { LeftRightComponent } from './pages/left-right/left-right.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { ScaleComponent } from './pages/scale/scale.component';
     ErrorComponent,
     WeatherCardComponent,
     ScaleComponent,
+    ShowHideComponent,
+    AnimateCardComponent,
+    SlideComponent,
+    LeftRightComponent,
   ],
   imports: [
     BrowserModule,

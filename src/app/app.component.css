@@ -37,7 +37,7 @@
   pointer-events: auto;
 }
 
-.side-menu__container::before {
+.side-menu__container {
   content: "";
   cursor: pointer;
   position: absolute;
