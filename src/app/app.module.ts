@@ -23,14 +23,11 @@ import { AddCardComponent } from './shared/components/add-card/add-card.componen
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WeatherCardComponent } from './shared/components/weather-card/weather-card.component';
 
-import { ShowHideComponent } from './pages/show-hide/show-hide.component';
 import { AnimateCardComponent } from './shared/components/animate-card/animate-card.component';
 
-import { FadeComponent } from './pages/fade/fade.component';
-import { RotateComponent } from './pages/rotate/rotate.component';
-import { SlideComponent } from './pages/slide/slide.component';
 import { RulerComponent } from './shared/component/ruler/ruler.component';
 import { GradientBorderComponent } from './shared/component/gradient-border/gradient-border.component';
+import { TriggerSlideComponent } from './pages/trigger-slide/trigger-slide.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +40,10 @@ import { GradientBorderComponent } from './shared/component/gradient-border/grad
     AddCardComponent,
     ErrorComponent,
     WeatherCardComponent,
-    ShowHideComponent,
     AnimateCardComponent,
-    FadeComponent,
-    RotateComponent,
-    SlideComponent,
     RulerComponent,
     GradientBorderComponent,
+    TriggerSlideComponent,
   ],
   imports: [
     BrowserModule,

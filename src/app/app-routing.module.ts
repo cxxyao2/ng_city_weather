@@ -7,9 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AppGuard } from './core/guards/app.guard';
-import { SlideComponent } from './pages/slide/slide.component';
-import { FadeComponent } from './pages/fade/fade.component';
-import { RotateComponent } from './pages/rotate/rotate.component';
+import { TriggerSlideComponent } from './pages/trigger-slide/trigger-slide.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AppGuard] },
@@ -21,9 +19,7 @@ const routes: Routes = [
   { path: 'add', component: AddComponent, canActivate: [AppGuard] },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
-  { path: 'slide', component: SlideComponent },
-  { path: 'fade', component: FadeComponent },
-  { path: 'rotate', component: RotateComponent },
+  { path: 'trigger', component: TriggerSlideComponent },
   { path: '**', redirectTo: '' },
 ];
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowHideComponent } from './show-hide.component';
+import { TriggerSlideComponent } from './trigger-slide.component';
 
-describe('ShowHideComponent', () => {
-  let component: ShowHideComponent;
-  let fixture: ComponentFixture<ShowHideComponent>;
+describe('TriggerSlideComponent', () => {
+  let component: TriggerSlideComponent;
+  let fixture: ComponentFixture<TriggerSlideComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowHideComponent ]
+      declarations: [ TriggerSlideComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowHideComponent);
+    fixture = TestBed.createComponent(TriggerSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

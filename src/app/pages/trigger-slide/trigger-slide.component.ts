@@ -8,24 +8,20 @@ import {
   animate,
 } from '@angular/animations';
 import { slideAnimation } from 'src/app/shared/animations/slide.animations';
-import { of, timer } from 'rxjs';
-import { slide2 } from 'src/app/shared/animations/slide_trigger.animations';
+import { Observable, of, timer } from 'rxjs';
+import {
+  customSlide,
+  customRotate,
+  customFade,
+} from 'src/app/shared/animations/triggers.animations';
 import { concatMap, delay, map, tap } from 'rxjs/operators';
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.css'],
-  animations: [
-    slide2,
-    trigger('slideUp', [
-      transition(':enter', [
-        useAnimation(slideAnimation, { params: { time: '1s' } }),
-      ]),
-      transition(':leave', animate('2s', style({ opacity: '0' }))),
-    ]),
-  ],
+  selector: 'app-trigger-slide',
+  templateUrl: './trigger-slide.component.html',
+  styleUrls: ['./trigger-slide.component.css'],
+  animations: [customSlide, customRotate, customFade],
 })
-export class SlideComponent implements OnInit {
+export class TriggerSlideComponent implements OnInit {
   antStatus = 'normal';
   noDisplay = false;
   innerWidth = 300;
