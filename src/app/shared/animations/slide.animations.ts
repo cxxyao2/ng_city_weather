@@ -10,7 +10,7 @@ import {
 export const slideAnimation = animation([
   style({
     bottom: '-200px',
-    opacity: '0',
+    opacity: '0.4',
   }),
   animate('{{ time }}', style({ bottom: '-5px', opacity: '1' })),
 ]);
