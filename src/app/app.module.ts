@@ -29,7 +29,8 @@ import { AnimateCardComponent } from './shared/components/animate-card/animate-c
 import { FadeComponent } from './pages/fade/fade.component';
 import { RotateComponent } from './pages/rotate/rotate.component';
 import { SlideComponent } from './pages/slide/slide.component';
-import { RulerComponent } from './shared/mock/ruler/ruler.component';
+import { RulerComponent } from './shared/component/ruler/ruler.component';
+import { GradientBorderComponent } from './shared/component/gradient-border/gradient-border.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RulerComponent } from './shared/mock/ruler/ruler.component';
     RotateComponent,
     SlideComponent,
     RulerComponent,
+    GradientBorderComponent,
   ],
   imports: [
     BrowserModule,

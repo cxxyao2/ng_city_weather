@@ -21,15 +21,17 @@ app-animate-card {
 }
 
 #topCard {
-  animation: slide 1s linear;
+  animation: slide 2s linear;
   z-index: 100;
 }
 
 @keyframes slide {
   from {
-    bottom: -100px;
+    bottom: -200px;
+    opacity: 0;
   }
   to {
     bottom: -5px;
+    opacity: 1;
   }
 }

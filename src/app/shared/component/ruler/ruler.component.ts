@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-ruler',
   templateUrl: './ruler.component.html',
-  styleUrls: ['./ruler.component.css']
+  styleUrls: ['./ruler.component.css'],
 })
 export class RulerComponent implements OnInit {
+  darkMode = true;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

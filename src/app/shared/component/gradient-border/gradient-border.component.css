@@ -1,0 +1,11 @@
+.white-grad {
+  background: linear-gradient(#ccc, #ccc) padding-box,
+    /*this is your grey background*/ linear-gradient(to right, #9c20aa, #fb3570)
+      border-box;
+  color: #313149;
+  padding: 10px;
+  border: 5px solid transparent;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 75px 0;
+}
